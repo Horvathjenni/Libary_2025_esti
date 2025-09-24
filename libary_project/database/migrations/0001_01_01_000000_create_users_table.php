@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -20,6 +21,27 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+        //itt toltod fel adatokkal a tablat
+        User::create([
+            "name" => "Admin",
+            "email" => "admin@test.com",
+            "password" => "admin123"
+
+        ]);
+
+        User::create([
+            "name" => "Teszt1",
+            "email" => "teszt1@test.com",
+            "password" => "teszt1"
+
+        ]);
+        User::create([
+            "name" => "Teszt2",
+            "email" => "teszt2@test.com",
+            "password" => "teszt2"
+
+        ]);
+
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
             $table->string('email')->primary();
